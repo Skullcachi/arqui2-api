@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const router = Router();
 
-const mysqlConnection = require("../database");
+const pool = require("../database");
 
-router.get('/:string', (req,res) => {
+
+
+router.get('/add/:string', (req,res) => {
     const { string }  = req.params;
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -11,7 +13,7 @@ router.get('/:string', (req,res) => {
     var dateTime = date+' '+time;
     console.log(today);
     console.log(string);
-    mysqlConnection.query("INSERT INTO datos VALUES (?, ?)", [dateTime, string], (err, rows, fields) => {
+    pool.query("INSERT INTO datos VALUES (?, ?)", [dateTime, string], (err, rows, fields) => {
         if (!err)
         {
             res.json({"code": 200});

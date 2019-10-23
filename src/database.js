@@ -1,21 +1,32 @@
 const mysql = require("mysql");
+const { database } = require('./keys');
+const { promisify } = require('util');
 
-const mysqlConnection = mysql.createConnection({
-    host: "mysql1004.mochahost.com",
-    user: "cachigua_arqui2",
-    password: "123456",
-    database: "cachigua_arqui2datasync",
-});
+const pool = mysql.createPool(database)
 
-mysqlConnection.connect(function(err)
-{
+pool.getConnection((err, connection) => {
+    
     if (err){
+        if (err.code === 'PROTOCOL_CONNECTION_LOST'){
+            console.error('DATABASE CONNECTION WAS CLOSED');
+        }
+        
+        if (err.code === 'ER_CON_COUNT_ERROR'){
+            console.error('DATABASE HAS TOO MANY CONNECTIONS');
+        }
+        
+        if (err.code === 'ECONNREFUSED'){
+            console.error('DATABASE CONNECTION WAS REFUSED');
+        }
         console.log(err);
         return;
     }
-    else{
+    if(connection){
+        connection.release();
         console.log("Db is connected");
+        return;
     }
 });
-
-module.exports = mysqlConnection;
+// Promisify Pool Queries
+pool.query = promisify(pool.query);
+module.exports = pool;
