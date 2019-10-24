@@ -22,3 +22,16 @@
 table tr {
     color: black;
 }
+
+.card
+{
+    color: black;
+}
+
+.card-body label{
+    float:left;
+}
+
+.card-body input{
+    float: right;
+}

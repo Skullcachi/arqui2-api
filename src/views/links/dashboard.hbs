@@ -25,19 +25,26 @@
             <div class="card">
                 <div class="card-body">
                     <form action="#">
-                        <div class="input-group col-md-6 mx-auto text-center p-4">
-                            <input type="int" class="form-control" name="diameter" id="diameter" placeholder="Diámetro de la llanta" autofocus>
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
+                            <label for="vueltas">Cantidad de vueltas:</label>
+                            <input type="int" class="form-control" name="vueltas" id="vueltas" placeholder="Cantidad de vueltas" value="{{vueltas.vueltas}}" autofocus>
                         </div>
-                        <div class="input-group col-md-6 mx-auto text-center p-4">
-                            <input type="int" class="form-control" name="minVelocity" id="minVelocity" placeholder="Velocidad mínima" >
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
+                            <label for="distancia">Distancia:</label>
+                            <input type="int" class="form-control" name="distancia" id="distancia" placeholder="Distancia" value="{{distancia}}" autofocus>
                         </div>
-                        <div class="input-group col-md-6 mx-auto text-center p-4">
-                            <input type="int" class="form-control" name="maxVelocity" id="maxVelocity" placeholder="Velocidad máxima" >
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
+                            <label for="velocidad">Velocidad:</label>
+                            <input type="int" class="form-control" name="velocidad" id="velocidad" placeholder="Velocidad" value="{{velocidad}}">
                         </div>
-                        <div class="input-group col-md-6 mx-auto text-center p-4">
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
+                            <label for="tiempo">Tiempo total:</label>
+                            <input type="int" class="form-control" name="tiempo" id="tiempo" placeholder="Tiempo total" value="{{tiempo.tiempo_total}}">
+                        </div>
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
                             <input type="int" class="form-control" name="averageVelocity" id="averageVelocity" placeholder="Velocidad promedio" >
                         </div>
-                        <div class="input-group col-md-6 mx-auto text-center p-4">
+                        <div class="form-group col-md-6 mx-auto text-center p-4">
                             <input type="int" class="form-control" name="rpm" id="rpm" placeholder="Vueltas por minuto" >
                         </div>
                     </form>
