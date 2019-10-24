@@ -41,12 +41,6 @@
                             <label for="tiempo">Tiempo total:</label>
                             <input type="int" class="form-control" name="tiempo" id="tiempo" placeholder="Tiempo total" value="{{tiempo.tiempo_total}}">
                         </div>
-                        <div class="form-group col-md-6 mx-auto text-center p-4">
-                            <input type="int" class="form-control" name="averageVelocity" id="averageVelocity" placeholder="Velocidad promedio" >
-                        </div>
-                        <div class="form-group col-md-6 mx-auto text-center p-4">
-                            <input type="int" class="form-control" name="rpm" id="rpm" placeholder="Vueltas por minuto" >
-                        </div>
                     </form>
                 </div>
             </div>
@@ -60,6 +54,10 @@
                         <div class="col-md-12 p-4">
                             <form action="/dashboard/truncate" method="get">
                                 <button class="btn btn-danger">TRUNCATE</button>
+                            </form>
+                            <hr>
+                            <form action="/dashboard/get" method="get">
+                                <button class="btn btn-info">RELOAD</button>
                             </form>
                         </div>
                     </div>
